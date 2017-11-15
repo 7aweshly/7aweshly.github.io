@@ -6,7 +6,7 @@ var starting = (Math.round((new Date()).getTime() / 1000)).toString();
 
 $('.countdown').final_countdown({
     start : starting, //Here use Milisecond. To convert your time you can go to this(https://currentmillis.com/) website. 
-    end   : 1542270952,
+    end   : 1513242000,
     now : starting,
 seconds: {
 borderColor: 'RGB(255,192,0)',
