@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- stylesheets -->
+
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<title>7aweshly</title>
+
+<body>
+
+	<div class="container-fluid">
+
+		<div class="row video">
+			<div class="col-sm-3 text2">
+				<span>7aweshly</span>
+			</div>
+			<div class="col-sm-6">
+				<div class="video-container">
+					<iframe src="https://www.youtube.com/embed/kvVYQwUHUo0?rel=0&amp;controls=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+			<div class="col-sm-3"></div>
+		</div>
+
+
+		<div class="row" id="middleSection">
+			<div class="row text-center text2">
+				Coming soon
+			</div>
+
+
+			<div class="row">
+
+
+				<div class="col-sm-12  wow fadeInRight">
+					<div class="clock row">
+						<div class="col-xs-3 col-sm-3 col-md-3">
+							<div class="countdown-time-value clock-item clock-days">
+								<div class="wrap">
+									<div class="inner">
+										<div id="canvas-days" class="clock-canvas"></div>
+
+										<div class="text" style="font-family:haweshly-font">
+											<p class="val">0</p>
+											<p class="type-days type-time">DAYS</p>
+										</div>
+										<!-- /.text -->
+									</div>
+									<!-- /.inner -->
+								</div>
+								<!-- /.wrap -->
+							</div>
+						</div>
+						<!-- /.clock-item -->
+
+						<div class="col-xs-3 col-sm-3 col-md-3">
+							<div class="clock-item clock-hours countdown-time-value">
+								<div class="wrap">
+									<div class="inner">
+										<div id="canvas-hours" class="clock-canvas"></div>
+
+										<div class="text" style="font-family:haweshly-font">
+											<p class="val">0</p>
+											<p class="type-hours type-time">HOURS</p>
+										</div>
+										<!-- /.text -->
+									</div>
+									<!-- /.inner -->
+								</div>
+								<!-- /.wrap -->
+							</div>
+						</div>
+						<!-- /.clock-item -->
+
+						<div class="col-xs-3 col-sm-3 col-md-3">
+							<div class="clock-item clock-minutes countdown-time-value">
+								<div class="wrap">
+									<div class="inner">
+										<div id="canvas-minutes" class="clock-canvas"></div>
+
+										<div class="text" style="font-family:haweshly-font">
+											<p class="val">0</p>
+											<p class="type-minutes type-time">MINUTES</p>
+										</div>
+										<!-- /.text -->
+									</div>
+									<!-- /.inner -->
+								</div>
+								<!-- /.wrap -->
+							</div>
+						</div>
+						<!-- /.clock-item -->
+
+						<div class="col-xs-3 col-sm-3 col-md-3">
+							<div class="clock-item clock-seconds countdown-time-value">
+								<div class="wrap">
+									<div class="inner">
+										<div id="canvas-seconds" class="clock-canvas"></div>
+
+										<div class="text" style="font-family:haweshly-font">
+											<p class="val">0</p>
+											<p class="type-seconds type-time">SECONDS</p>
+										</div>
+										<!-- /.text -->
+									</div>
+									<!-- /.inner -->
+								</div>
+								<!-- /.wrap -->
+							</div>
+						</div>
+						<!-- /.clock-item -->
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row text-center text2">
+			Be The First To Know
+		</div>
+
+
+		<div role="form" id="subscribe-form" class="row">
+			<div class="col-sm-4"></div>
+			<div class=" col-sm-3" >
+				<input type="text" class="form-control" id="subscriberPhone" placeholder="Mobile Number..." required >
+				<input type="text" class="form-control" id="subscriberName" placeholder="Name..." required>
+			</div>
+			<div class=" col-sm-1 text-center ">
+				<button class="btn btn-success" onclick="addToDatabase()">
+					<div class="button">
+						<i class="fa fa-sign-in" aria-hidden="true"></i>
+						Subscribe
+					</div>
+				</button>
+			</div>
+		</div>
+
+
+		<div class="social-icons row text-center">
+			<ul>
+				<div class="col-sm-4">
+
+				</div>
+				<div class="col-sm-1">
+					<li class=" facebook">
+						<a href="https://www.facebook.com/7aweshly/">
+							<i class="fa fa-facebook" aria-hidden="true"></i>
+						</a>
+					</li>
+				</div>
+				<div class="col-sm-1">
+					<li class="twitter">
+						<a href="https://twitter.com/EGPRate">
+							<i class="fa fa-twitter" aria-hidden="true"></i>
+						</a>
+					</li>
+				</div>
+				<div class="col-sm-1">
+					<li class="linkedin">
+						<a href="https://ae.linkedin.com/company/7aweshly">
+							<i class="fa fa-linkedin" aria-hidden="true"></i>
+						</a>
+					</li>
+				</div>
+				<div class="col-sm-4">
+
+				</div>
+			</ul>
+		</div>
+	</div>
+
+	<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyAVezXRgdMpzkrHncd68Ckfu2p83czXykY",
+			authDomain: "aweshly-subscription.firebaseapp.com",
+			databaseURL: "https://aweshly-subscription.firebaseio.com",
+			projectId: "aweshly-subscription",
+			storageBucket: "aweshly-subscription.appspot.com",
+			messagingSenderId: "75333162463"
+		};
+		firebase.initializeApp(config);
+
+		function addToDatabase(){
+			// console.log("btn clicked");
+			var phoneNumber = document.getElementById("subscriberPhone").value;
+			// console.log(phoneNumber);
+			var name = document.getElementById("subscriberName").value;
+			var subscribersRef = firebase.database().ref('subscribers');
+
+			subscribersRef.push({
+				Phone: phoneNumber,
+				Name: name,
+			})
+			document.getElementById("subscriberPhone").value= "";
+			document.getElementById("subscriberName").value= "" ;
+			
+		}
+		
+	</script>
+	
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.videoBG.js"></script>
+	<script src="js/jquery.sticky-kit.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/kinetic.js"></script>
+	<script src="js/jquery.final-countdown.min.js"></script>
+	<script src="js/script.js"></script>
+</body>
+
+</html>
